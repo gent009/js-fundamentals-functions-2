@@ -7,11 +7,10 @@ console.log(bakingTime());
 // 2. Create a function named remainingBakeTime that accepts one parameter:
 // - the number of minutes your cake has been in the oven.
 //
-function remainingBakeTime(elapsedTime){
-const totalBakeTime = 30;
-return totalBakeTime - elapsedTime;
+function remainingBakeTime(minutesInOven){
+return (bakingTime() - minutesInOven);
 }
-console.log(remainingBakeTime(10));
+console.log(remainingBakeTime(30));
 // It must return how many minutes your cake has left based on your parameter
 // and the result of the bakingTime function
 
@@ -19,10 +18,10 @@ console.log(remainingBakeTime(10));
 // - the number of layers your cake has
 //
 function calculatePreparationTime(numberOfLayers){
-const timePerLayer = 3;
-return numberOfLayers * timePerLayer;
-}
-console.log(calculatePreparationTime(4));
+  const timePerLayer = 3;
+  return numberOfLayers * timePerLayer;
+  }
+  console.log(calculatePreparationTime(4));
 // It must return how many minutes it will take to prepare your cake, based on
 // each layer taking 3 minutes to prepare
 
@@ -32,15 +31,12 @@ console.log(calculatePreparationTime(4));
 // It must return how many minutes in total you have spent making the cake,
 // which is the sum of the preparation time and the number of minutes it's been in the oven.
 // Use your calculatePreparationTime function in the calculation.
-function totalTimeSpent(numberOfLayers){
-const timePerLayer = 3;
-return numberOfLayers * timePerLayer;
+
+function totalTimeSpent(numberOfLayers, minutesInOven){
+const preparationTime = calculatePreparationTime(numberOfLayers);
+return preparationTime + minutesInOven;
 }
-function totalTimeSpent(numberOfLayers,bakingTime){
-const PreparationTime = calculatePreparationTime(numberOfLayers);
-return PreparationTime + bakingTime;
-}
-console.log(totalTimeSpent(4, 20));
+console.log(totalTimeSpent(4, 30));
 
 // Don't change the code below this line
 module.exports = {
